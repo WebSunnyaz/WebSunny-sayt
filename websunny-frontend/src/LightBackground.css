@@ -1,0 +1,45 @@
+.light-bg {
+  position: relative;
+  background-color: #0a1335;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Sadə 3 işıq zolağı efekti */
+.light-bg::before,
+.light-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Sol işıq */
+.light-bg::before {
+  left: -150px;
+  background: linear-gradient(45deg, rgba(88, 202, 255, 0.5), transparent);
+}
+
+/* Sağ işıq */
+.light-bg::after {
+  right: -150px;
+  background: linear-gradient(-45deg, rgba(88, 202, 255, 0.5), transparent);
+}
+
+/* Orta işıq */
+.light-bg .center-light {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 200px;
+  height: 600px;
+  background: linear-gradient(180deg, rgba(88, 202, 255, 0.3), transparent);
+  filter: blur(80px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+}

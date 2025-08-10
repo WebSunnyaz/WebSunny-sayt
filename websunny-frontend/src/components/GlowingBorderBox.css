@@ -1,0 +1,47 @@
+@keyframes glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.border-animation {
+  background-size: 200% 200%;
+  animation: glow 2s  linear infinite;
+  opacity: 1;
+}
+
+.hero-border {
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgba(40, 182, 255, 0.7), rgba(40, 182, 255, 0.2)) 1;
+  border-radius: 12px;
+}
+
+
+.primary-border{
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(40, 182, 255, 0.7);
+  border-radius: 12px;
+}
+
+.hero-text-glow {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text-glow::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: -200px;
+  width: 130%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(40,182,255,0.2) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  border-radius: 50%;
+}
