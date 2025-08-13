@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 
 const team = [
   {
-    name: "Rövşən",
+    name: "Rövşən Mədətov",
     role: "Founder & Full-stack Developer",
     img: "/men.jpeg",
     website: "https://rovshan-madatov-portfolio.vercel.app/",
@@ -15,20 +15,20 @@ const team = [
     instagram: "https://www.instagram.com/rovsen_512",
   },
   {
-    name: "Aysel",
+    name: "Elçin Mürsəlzadə",
     role: "Back-end Developer",
-    img: "https://randomuser.me/api/portraits/women/44.jpg",
-    website: "https://aysel.dev",
-    linkedin: "https://linkedin.com/in/aysel",
-    instagram: "https://instagram.com/rovshen",
+    img: "/elcin.webp",
+    website: "https://elcin",
+    linkedin: "https://linkedin.com/in/elcin",
+    instagram: "https://instagram.com/elcin",
   },
   {
-    name: "Elçin",
+    name: "Aysel Məmmədova",
     role: "UI/UX Designer",
-    img: "https://randomuser.me/api/portraits/men/65.jpg",
-    website: "https://elcin.dev",
-    linkedin: "https://linkedin.com/in/elcin",
-    instagram: "https://instagram.com/rovshen",
+    img: "/aysel .jpg",
+    website: "https://elcin.aysel",
+    linkedin: "https://linkedin.com/in/aysel",
+    instagram: "https://instagram.com/aysel",
   },
 ];
 

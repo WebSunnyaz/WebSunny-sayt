@@ -59,9 +59,14 @@ const Header = () => {
         {/* Sağ tərəf */}
         <div className="flex items-center space-x-6 [@media(min-width:1360px)]:gap-8">
           {/* Telefon ikonu */}
-          <div className="flex items-center text-[#3c82f6]" title="Zəng et">
-            <img src="./phone-call (2).svg" alt="" />
-          </div>
+          <a
+            href="tel:+994513997969"
+            className="flex items-center text-[#3c82f6]"
+            title="Zəng et"
+          >
+            <img src="./phone-call (2).svg" alt="Zəng et" />
+          </a>
+
 
           {/* Başla düyməsi - yalnız 1250px-dən yuxarı */}
           <Link
