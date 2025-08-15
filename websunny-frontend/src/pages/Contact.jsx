@@ -59,6 +59,7 @@ const Contact = () => {
                 <a
                   href="https://www.instagram.com/websunny.az"
                   target="_blank"
+                  aria-label="Instagram hesabımız"
                   rel="noopener noreferrer"
                   className="bg-[#0a0f2c] w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg hover:scale-110 transition"
                 >
@@ -67,6 +68,7 @@ const Contact = () => {
                 <a
                   href="https://www.linkedin.com/company/websunny"
                   target="_blank"
+                  aria-label="Linkedin hesabımız"
                   rel="noopener noreferrer"
                   className="bg-[#0a0f2c] w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg hover:scale-110 transition"
                 >
@@ -75,6 +77,7 @@ const Contact = () => {
                 <a
                   href="https://www.facebook.com/profile.php?id=61573026174019"
                   target="_blank"
+                  aria-label="Facebook hesabımız"
                   rel="noopener noreferrer"
                   className="bg-[#0a0f2c] w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg hover:scale-110 transition"
                 >
@@ -83,6 +86,7 @@ const Contact = () => {
                 <a
                   href="https://wa.me/994513997969"
                   target="_blank"
+                  aria-label="Whatsapp nömrəmiz"
                   rel="noopener noreferrer"
                   className="bg-[#0a0f2c] w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg hover:scale-110 transition"
                 >
@@ -94,27 +98,55 @@ const Contact = () => {
 
           {/* Sağ tərəf – Form */}
           <form className="bg-[#0b122d] p-4 sm:p-6 rounded-2xl flex flex-col gap-4 md:w-1/2">
-            <input
-              type="text"
-              placeholder="Adınız"
-              className="bg-[#0a0f2c] text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-[#2463eb] w-full"
-            />
-            <input
-              type="email"
-              placeholder="E-poçtunuz"
-              className="bg-[#0a0f2c] text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-[#2463eb] w-full"
-            />
-            <textarea
-              placeholder="Mesajınız"
-              className="bg-[#0a0f2c] text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-[#2463eb] h-40 sm:h-56 resize-none w-full"
-            ></textarea>
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-[#2463eb] to-[#28b6ff] text-white font-semibold py-3 rounded-full hover:opacity-90 transition"
-            >
-              Göndər
-            </button>
-          </form>
+  <div className="flex flex-col">
+    <label htmlFor="name" className="sr-only">
+      Adınız
+    </label>
+    <input
+      id="name"
+      type="text"
+      placeholder="Adınız"
+      className="bg-[#0a0f2c] text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-[#2463eb] w-full"
+      required
+      aria-required="true"
+    />
+  </div>
+
+  <div className="flex flex-col">
+    <label htmlFor="email" className="sr-only">
+      E-poçtunuz
+    </label>
+    <input
+      id="email"
+      type="email"
+      placeholder="E-poçtunuz"
+      className="bg-[#0a0f2c] text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-[#2463eb] w-full"
+      required
+      aria-required="true"
+    />
+  </div>
+
+  <div className="flex flex-col">
+    <label htmlFor="message" className="sr-only">
+      Mesajınız
+    </label>
+    <textarea
+      id="message"
+      placeholder="Mesajınız"
+      className="bg-[#0a0f2c] text-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-[#2463eb] h-40 sm:h-56 resize-none w-full"
+      required
+      aria-required="true"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    className="w-full bg-gradient-to-r from-[#2463eb] to-[#28b6ff] text-white font-semibold py-3 rounded-full hover:opacity-90 transition"
+  >
+    Göndər
+  </button>
+</form>
+
         </div>
       </section>
     </>

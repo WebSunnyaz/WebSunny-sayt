@@ -46,6 +46,7 @@ const Footer = () => {
              <a
              href="https://www.instagram.com/websunny.az"
              target="_blank"
+             aria-label="Instagram hesabımız"
              rel="noopener noreferrer"
              className="bg-[#0a0f2c] w-12 h-12 flex items-center justify-center rounded-lg hover:scale-110 transition"
            >
@@ -54,6 +55,7 @@ const Footer = () => {
            <a
              href="https://www.linkedin.com/company/websunny"
              target="_blank"
+             aria-label="Linkedin hesabımız"
              rel="noopener noreferrer"
              className="bg-[#0a0f2c] w-12 h-12 flex items-center justify-center rounded-lg hover:scale-110 transition"
            >
@@ -62,6 +64,7 @@ const Footer = () => {
            <a
              href="https://www.facebook.com/profile.php?id=61573026174019"
              target="_blank"
+             aria-label="Facebook hesabımız"
              rel="noopener noreferrer"
              className="bg-[#0a0f2c] w-12 h-12 flex items-center justify-center rounded-lg hover:scale-110 transition"
            >
@@ -70,6 +73,7 @@ const Footer = () => {
            <a
              href="https://wa.me/994513997969"
              target="_blank"
+             aria-label="Whatsapp nömrəmiz"
              rel="noopener noreferrer"
              className="bg-[#0a0f2c] w-12 h-12 flex items-center justify-center rounded-lg hover:scale-110 transition"
            >

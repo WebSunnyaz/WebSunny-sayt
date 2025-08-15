@@ -79,6 +79,7 @@ const Header = () => {
           {/* Hamburger menyu */}
           <button
             ref={buttonRef}
+            aria-label="Menyu aç" 
             className="[@media(min-width:1250px)]:hidden p-2 rounded-lg bg-[#0c1537] border-2 border-blue-400 hover:bg-blue-800 transition-all duration-200 focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
           >
