@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./GlowingBorderBox.css";
+import BlurImage from "./BlurImage";
 
 const Hero = () => {
   return (
@@ -17,20 +18,30 @@ const Hero = () => {
   </p>
 
   <div className="flex gap-4">
-    <Link to="/portfolio" className="bg-[#28b6ff] hover:bg-[#1a8cff] text-black font-semibold py-4 px-6 rounded-lg shadow-md transition duration-300 text-lg md:text-base">
-      İşlərimiz
-    </Link>
-    <Link to="/faq" className="border border-[#28b6ff] hover:bg-[#28b6ff] hover:text-black text-[#28b6ff] font-semibold py-3 px-5 rounded-lg transition duration-300 text-lg md:text-base">
-      Daha çox öyrən
-    </Link>
+   <div className="flex flex-col sm:flex-row items-center gap-4">
+  <Link
+    to="/portfolio"
+    className="bg-[#28b6ff] hover:bg-[#1a8cff] text-black font-semibold py-4 px-6 rounded-lg shadow-md transition duration-300 text-lg md:text-base text-center w-full sm:w-auto"
+  >
+    İşlərimiz
+  </Link>
+  <Link
+    to="/faq"
+    className="border border-[#28b6ff] text-[#28b6ff] hover:bg-[#28b6ff] hover:text-black font-semibold py-3 px-5 rounded-lg transition duration-300 text-lg md:text-base text-center w-full sm:w-auto"
+  >
+    Daha çox öyrən
+  </Link>
+</div>
+
+
   </div>
 </div>
 
 
       {/* Sağ tərəf - Şəkil */}
       <div className="flex-1 md:flex justify-center">
-        <img
-          src="/hero side.jpeg"
+        <BlurImage
+          img="/hero side.webp"
           alt="Developer illustration"
           className="w-[380px] md:w-[480px] object-contain"
         />

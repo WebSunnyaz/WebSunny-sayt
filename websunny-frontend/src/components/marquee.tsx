@@ -49,38 +49,80 @@ const testimonialsData = [
 ];
 
 export default function TestimonialMarquee() {
-  const marqueeRef = useRef<HTMLDivElement>(null);
+  const marqueeRef1 = useRef(null);
+  const marqueeRef2 = useRef(null);
 
+  // 1-ci sıra sola doğru
   useEffect(() => {
-    const marquee = marqueeRef.current;
+    const marquee = marqueeRef1.current;
     if (!marquee) return;
-
-    let animationFrame: number;
     let position = 0;
+    let animationFrame;
     const speed = 0.5;
-
     const step = () => {
       position -= speed;
-
       const totalWidth = marquee.scrollWidth / 2;
-
-      if (Math.abs(position) >= totalWidth) {
-        position = 0;
-      }
-
+      if (Math.abs(position) >= totalWidth) position = 0;
       marquee.style.transform = `translateX(${position}px)`;
       animationFrame = requestAnimationFrame(step);
     };
-
     animationFrame = requestAnimationFrame(step);
-
     return () => cancelAnimationFrame(animationFrame);
   }, []);
 
+  // 2-ci sıra sağa doğru
+  // 2-ci sıra sağa doğru loop
+useEffect(() => {
+  const marquee = marqueeRef2.current;
+  if (!marquee) return;
+
+  let position = - (marquee.scrollWidth / 2); // başlanğıcı ortadan başlat
+  let animationFrame;
+  const speed = 0.5;
+
+  const step = () => {
+    position += speed;
+
+    const totalWidth = marquee.scrollWidth / 2;
+
+    if (position >= 0) {
+      position = -totalWidth; // başa çatanda ortadan yenidən başlasın
+    }
+
+    marquee.style.transform = `translateX(${position}px)`;
+    animationFrame = requestAnimationFrame(step);
+  };
+
+  animationFrame = requestAnimationFrame(step);
+  return () => cancelAnimationFrame(animationFrame);
+}, []);
+
+
+  const Card = ({ name, role, comment, avatar }) => (
+    <div className="primary-border w-80 shrink-0 bg-gradient-to-br from-[#0f1c3e] to-[#000000] border border-[#2463eb]/30 rounded-xl p-6 shadow-md hover:shadow-[#28b6ff]/50 transition-shadow duration-300">
+      <div className="flex items-center gap-4 mb-4">
+        <img
+          src={avatar}
+          alt={name}
+          className="w-14 h-14 rounded-full border-2 border-[#28b6ff]"
+        />
+        <div>
+          <h3 className="text-white font-semibold">{name}</h3>
+          <p className="text-gray-400 text-sm">{role}</p>
+        </div>
+      </div>
+      <p className="text-gray-200 italic line-clamp-2">"{comment}"</p>
+      <div className="flex mt-4 text-[#28b6ff]">
+        {[...Array(5)].map((_, i) => (
+          <FaStar key={i} className="drop-shadow-[0_0_4px_#28b6ff]" />
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <>
-
-     <Helmet>
+      <Helmet>
         <title>Müştəri Rəyləri - Websunny</title>
         <meta
           name="description"
@@ -88,48 +130,39 @@ export default function TestimonialMarquee() {
         />
       </Helmet>
 
-      {/* Başlıq - FAQ-dakı kimi ayrıca container içində */}
-      <div className="container mx-auto  p-4 pt-10">
+      <div className="container mx-auto p-4 pt-10">
         <h2 className="text-3xl font-bold text-center mb-12 text-[#28b6ff] border-2 border-[#28b6ff] rounded-3xl px-6 py-3">
           Müştəri rəyləri
         </h2>
       </div>
 
-      {/* Marquee bölməsi */}
-      <section className="w-full rounded-3xl overflow-hidden primary-border bg-black py-12">
+      {/* 1-ci sıra */}
+     <div className="primary-border rounded-xl " >
+       <section className="w-full pt-12  rounded-t-xl overflow-hidden bg-black py-6">
         <div
           className="flex w-max gap-6 px-4"
-          ref={marqueeRef}
+          ref={marqueeRef1}
           style={{ willChange: "transform" }}
         >
           {[...testimonialsData, ...testimonialsData].map(
-            ({ id, name, role, comment, avatar }, i) => (
-              <div
-                key={`${id}-${i}`}
-                className="primary-border w-80 shrink-0 bg-gradient-to-br from-[#0f1c3e] to-[#000000] border border-[#2463eb]/30 rounded-xl p-6 shadow-md hover:shadow-[#28b6ff]/50 transition-shadow duration-300"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <img
-                    src={avatar}
-                    alt={name}
-                    className="w-14 h-14 rounded-full border-2 border-[#28b6ff]"
-                  />
-                  <div>
-                    <h3 className="text-white font-semibold">{name}</h3>
-                    <p className="text-gray-400 text-sm">{role}</p>
-                  </div>
-                </div>
-                <p className="text-gray-200 italic">"{comment}"</p>
-                <div className="flex mt-4 text-[#28b6ff]">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className="drop-shadow-[0_0_4px_#28b6ff]" />
-                  ))}
-                </div>
-              </div>
-            )
+            (item, i) => <Card key={`${item.id}-${i}`} {...item} />
           )}
         </div>
       </section>
+
+      {/* 2-ci sıra */}
+      <section className="w-full rounded-b-xl  overflow-hidden bg-black py-6 pb-12">
+        <div
+          className="flex w-max gap-6 px-4"
+          ref={marqueeRef2}
+          style={{ willChange: "transform" }}
+        >
+          {[...testimonialsData, ...testimonialsData].map(
+            (item, i) => <Card key={`${item.id}-b-${i}`} {...item} />
+          )}
+        </div>
+      </section>
+     </div>
     </>
   );
 }

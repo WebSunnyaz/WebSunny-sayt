@@ -28,7 +28,7 @@ const Header = () => {
         <div className="relative flex items-center space-x-3 cursor-pointer select-none">
           <Link to="/" className="relative">
             <img
-              src="/logo-mavi.jpeg"
+              src="/logo-mavi.webp"
               alt="WebSunny Logo"
               className="h-32 w-20 rounded-full object-cover"
             />

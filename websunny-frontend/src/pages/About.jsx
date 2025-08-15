@@ -4,12 +4,13 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaInstagram, FaGlobe } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import BlurImage from "../components/BlurImage";
 
 const team = [
   {
     name: "Rövşən Mədətov",
     role: "Founder & Full-stack Developer",
-    img: "/men.jpeg",
+    img: "/men.webp",
     website: "https://rovshan-madatov-portfolio.vercel.app/",
     linkedin: "https://www.linkedin.com/in/rovsen-medetov/",
     instagram: "https://www.instagram.com/rovsen_512",
@@ -25,7 +26,7 @@ const team = [
   {
     name: "Aysel Məmmədova",
     role: "UI/UX Designer",
-    img: "/aysel .jpg",
+    img: "/aysel .webp",
     website: "https://elcin.aysel",
     linkedin: "https://linkedin.com/in/aysel",
     instagram: "https://instagram.com/aysel",
@@ -99,14 +100,14 @@ const About = () => {
           {team.map((member, index) => (
             <div
               key={index}
-              className="min-w-[80%] md:min-w-0 snap-center bg-[#0e162e] primary-border hover:bg-[#18263f] transition rounded-2xl p-6 text-center shadow-md shadow-[#28b6ff]/10 hover:shadow-[#28b6ff]/40 transform hover:-translate-y-2 hover:scale-105 duration-300"
+              className="min-w-[80%] md:min-w-0 snap-center bg-[#0e162e] primary-border hover:bg-[#18263f] transition rounded-2xl p-6 text-center shadow-md shadow-[#28b6ff]/10 hover:shadow-[#28b6ff]/40 sm:transform sm:hover:-translate-y-2 sm:hover:scale-105 sm:duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 * index, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <img
-                src={member.img}
+              <BlurImage
+                img={member.img}
                 alt={member.name}
                 className="w-24  h-24 mx-auto  object-cover rounded-full mb-4 border-4 border-[#28b6ff]"
               />

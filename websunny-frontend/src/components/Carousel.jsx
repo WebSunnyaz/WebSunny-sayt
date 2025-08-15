@@ -1,6 +1,7 @@
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import "./Carousel.css"
+import BlurImage from "./BlurImage";
 
 
 const carousel = (slider) => {
@@ -28,37 +29,37 @@ const cards = [
     id: 1,
     title: "Nexora Finance",
     description: "Nexora Finance üçün hazırlanan bu veb sayt, müasir maliyyə xidmətləri təklif edən bir şirkətin etibarlı və peşəkar imicini əks etdirir. İstifadəçi dostu interfeys, xidmət bölmələri, bloq və əlaqə forması ilə zənginləşdirilmişdir.",
-    image: "./nexora-finance.png",
+    image: "./nexora-finance.webp",
   },
   {
     id: 2,
     title: "Glorelle Cosmetics",
     description: "Glorelle Cosmetics təbii və keyfiyyətli dəriyə qulluq məhsulları təqdim edən gözəllik brendidir. Sayt zərif dizaynı və istifadəsi asan interfeysi ilə məhsulları vizual olaraq ön plana çıxarır.",
-    image: "./glorelle.png",
+    image: "./glorelle.webp",
   },
   {
     id: 3,
     title: "GreenPeak Travels",
     description: "GreenPeak Travels ekoloji və məsuliyyətli turizm təcrübələri təqdim edən səyahət agentliyidir. Sayt təbiət temalı dizaynı və istifadəçi yönümlü axtarış sistemi ilə rahat tur seçimi imkanı yaradır.",
-    image: "./greenpeak.png",
+    image: "./greenpeak.webp",
   },
   {
     id: 4,
     title: "Tech Hive",
     description: "Tech Hive üçün hazırladığım bu sayt, müasir dizayn və funksionallıqla tam inteqrasiya olunmuşdur. Portfoliomdakı bu layihə, Texnologiya sahəsindəki bacarıqlarımı və kreativ yanaşmamı əks etdirir.",
-    image: "./techhive.png",
+    image: "./techhive.webp",
   },
   {
     id: 5,
     title: "EduSpark Academy",
     description: "EduSpark Academy veb platforması, onlayn tədris sahəsində fəaliyyət göstərən təlim mərkəzi üçün hazırlanıb. Kurs siyahıları, müəllim profilləri və tələbə rəyləri ilə interaktiv öyrənmə təcrübəsi yaradır.",
-    image: "./eduspark.png",
+    image: "./eduspark.webp",
   },
   {
     id: 6,
     title: "Qala Group",
     description: "Qala Group müasir memarlıq və tikinti sahəsində innovativ və etibarlı həllər təklif edən aparıcı şirkətdir. Yaşayış, ofis və sənaye obyektləri üzrə peşəkar layihələrimizlə gələcəyin inşasına töhfə veririk.",
-    image: "./qala.png",
+    image: "./qala.webp",
   },
 ];
 
@@ -102,10 +103,10 @@ export default function Carousel() {
           {cards.map((card) => (
             <div className="carousel__cell" key={card.id}>
               <div className="card-title">{card.title}</div>
-              <div
+              <BlurImage
                 className="card-image"
-                style={{ backgroundImage: `url(${card.image})` }}
-              ></div>
+               img={card.image}
+              ></BlurImage>
               <div className="card-info">{card.description}</div>
             </div>
           ))}

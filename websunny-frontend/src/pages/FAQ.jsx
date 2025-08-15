@@ -66,57 +66,55 @@ const FAQ = ({ isPreview = false }) => {
           content="Websunny şirkətinə aid tez-tez verilən suallar və cavablar. Xidmətlərimiz, veb sayt hazırlığı, dəstək və digər mövzular haqqında ətraflı məlumat."
         />
       </Helmet>
-    
+
 
       <section className="container max-w-7xl mx-auto p-4">
 
-      <div className="rounded-xl py-12 max-sm:px-6 text-white">
-        <h2 className="text-3xl font-bold text-center mb-12 text-[#28b6ff] border-2 border-[#28b6ff] rounded-3xl  py-3">
-          Tez-tez verilən suallar
-        </h2>
-        <div className="space-y-4 bg-black p-6 md:p-16 rounded-xl primary-border">
+        <div className="rounded-xl py-12  text-white">
+          <h2 className="text-3xl font-bold text-center mb-12 text-[#28b6ff] border-2 border-[#28b6ff] rounded-3xl  py-3">
+            Tez-tez verilən suallar
+          </h2>
+          <div className="space-y-4 bg-black p-6 md:p-16 rounded-xl primary-border ">
 
-          {shownFaqs.map((faq, index) => (
-            <div
-              key={index}
-              className={`bg-blue-800/30 border border-blue-600 rounded-md overflow-hidden transition-all duration-300 ${
-                openIndex === index ? "shadow-lg" : "hover:bg-blue-800/50"
-              }`}
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none"
-              >
-               <span className="text-base md:text-lg font-medium">{faq.question}</span>
-
-                <span className="text-2xl font-bold">{openIndex === index ? "−" : "+"}</span>
-              </button>
-
+            {shownFaqs.map((faq, index) => (
               <div
-  className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${
-    openIndex === index ? "max-h-[200px] py-2" : "max-h-0"
-  }`}
->
-
-                <p className="text-gray-300">{faq.answer}</p>
-              </div>
-            </div>
-          ))}
-
-          {/* Əgər preview-dursa yönləndirmə düyməsi göstər */}
-          {isPreview && (
-            <div className="text-center mt-10">
-              <button
-                onClick={() => navigate("/faq")}
-                className="text-[#28b6ff] border border-[#28b6ff] hover:bg-[#28b6ff] hover:text-black font-semibold py-3 px-8 rounded-lg transition duration-300"
+                key={index}
+                className={`bg-blue-800/30 border border-blue-600 rounded-md overflow-hidden transition-all duration-300 ${openIndex === index ? "shadow-lg" : "hover:bg-blue-800/50"
+                  }`}
               >
-                Daha çox sual
-              </button>
-            </div>
-          )}
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none"
+                >
+                  <span className="text-base md:text-lg font-medium">{faq.question}</span>
+
+                  <span className="text-2xl font-bold">{openIndex === index ? "−" : "+"}</span>
+                </button>
+
+                <div
+                  className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? "max-h-[200px] py-2" : "max-h-0"
+                    }`}
+                >
+
+                  <p className="text-gray-300">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+
+            {/* Əgər preview-dursa yönləndirmə düyməsi göstər */}
+            {isPreview && (
+              <div className="text-center mt-10">
+                <button
+                  onClick={() => navigate("/faq")}
+                  className="text-[#28b6ff] border border-[#28b6ff] hover:bg-[#28b6ff] hover:text-black font-semibold py-3 px-8 rounded-lg transition duration-300"
+                >
+                  Daha çox sual
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
 
   );

@@ -1,9 +1,11 @@
+import BlurImage from "./BlurImage";
+
 const PortfolioItem = ({ image, title, link }) => {
   return (
     <div className="bg-black border border-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-blue-500/50 transition duration-300 flex flex-col">
       <div className="p-5 bg-black">
-        <img
-          src={image}
+        <BlurImage
+          img={image}
           alt={title}
           className="w-full h-48 object-cover rounded-lg border border-gray-700"
         />
